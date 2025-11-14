@@ -368,6 +368,9 @@ args = parser.parse_args()
 prots = open(args.prots)
 prots = fasta2(prots)
 
+protfile = args.prots
+protfile = lastItem(protfile.split("/"))
+
 cluDict = defaultdict(list)
 clu = open(args.clu)
 for i in clu:
@@ -375,8 +378,8 @@ for i in clu:
     cluDict[ls[0]].append(ls[1])
 
 count = 0
-os.system("mkdir %s/clusters" % args.outdir)
-out = open("%s/%s-rep.faa" % (args.outdir, args.prots), "w")
+os.system("mkdir -p %s/clusters" % args.outdir)
+out = open("%s/%s-rep.faa" % (args.outdir, protfile), "w")
 for i in cluDict.keys():
     out.write(">" + i + "\n")
     out.write(prots[i] + "\n")
