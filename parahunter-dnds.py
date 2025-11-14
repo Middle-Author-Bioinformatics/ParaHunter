@@ -404,16 +404,16 @@ for i in clu:
 
 cwd = os.getcwd()
 
-os.system('mkdir ' + cwd + "/dnds-analysis")
+os.system('mkdir ' + args.out + "/dnds-analysis")
 
-DIR = cwd + "/dnds-analysis"
+DIR = args.out + "/dnds-analysis"
 
 count = 0
 for i in cluDict.keys():
     if len(cluDict[i]) > 1:
         name = allButTheLast(i, "_") + "_" + lastItem(i.split("_"))
-        outpep = open(cwd + "/dnds-analysis/%s.faa" % name, "w")
-        outnuc = open(cwd + "/dnds-analysis/%s.faa.fna" % name, "w")
+        outpep = open(args.out + "/dnds-analysis/%s.faa" % name, "w")
+        outnuc = open(args.out + "/dnds-analysis/%s.faa.fna" % name, "w")
         for j in cluDict[i]:
             outpep.write(">" + j + "\n")
             outnuc.write(">" + j + "\n")
@@ -442,11 +442,11 @@ for file in codealign:
 
         for i in setup:
             if re.findall('seqfile', i):
-                out.write('' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + 'seqfile' + ' ' + '=' + ' dnds-analysis/' + file + ' ' + '*' + ' ' + 'sequence' + ' ' + 'data' + ' ' + 'filename\n')
+                out.write('' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + 'seqfile' + ' ' + '=' + ' ' + args.out + '/dnds-analysis/' + file + ' ' + '*' + ' ' + 'sequence' + ' ' + 'data' + ' ' + 'filename\n')
 
             elif re.findall(r'outfile', i):
                 out.write('' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + 'outfile' + ' ' + '=' + ' '
-                          + 'dnds-analysis/mlcTree_' + str(clu) + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' '
+                          + args.out + '/dnds-analysis/mlcTree_' + str(clu) + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' '
                           + '' + ' ' + '' + ' ' + '' + ' ' + '*' + ' ' + 'main' + ' ' + 'result' + ' ' + 'file' + ' ' + 'name\n')
                 out.write('' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + 'treefile' + ' ' + '=' + ' '
                           + 'tmp.trees' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' ' + '' + ' '
