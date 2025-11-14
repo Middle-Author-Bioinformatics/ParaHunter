@@ -462,7 +462,7 @@ for file in codealign:
 codealign = os.listdir(DIR)
 for file in codealign:
     if lastItem(file.split(".")) == "ctl":
-        os.system("codeml %s/dnds-analysis/%s" % (args.out, file))
+        os.system("printf \"\n\" | codeml %s/dnds-analysis/%s" % (args.out, file))
 
 
 # PARSING CODEML OUTPUT
