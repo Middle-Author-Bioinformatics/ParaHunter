@@ -427,7 +427,7 @@ for i in cluDict.keys():
 
 # ALIGNING PROTEIN SEQUENCES AND CREATING A CODON ALIGNMENT
 os.system("for i in %s/*faa; do"
-          " muscle -in $i -out $i.aligned.fa;"
+          " muscle -align $i -output $i.aligned.fa;"
           " pal2nal.pl $i.aligned.fa $i.fna -output fasta > $i.codonalign.fa;"
           " done" % DIR)
 
