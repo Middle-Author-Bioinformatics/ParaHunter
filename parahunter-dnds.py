@@ -502,7 +502,7 @@ for i in dsDict.keys():
         MLCdict[i][j]["closestNeighbor"] = closestNeighbor
         MLCdict[i][j]["lowestDS"] = lowestDS
 
-out = open("dS_summary.csv", "w")
+out = open(args.out + "/dS_summary.csv", "w")
 out.write("cluster" + "," + "gene" + "," + "closestNeighbor" + "," + "lowestDS" + "," + "dN" + "\n")
 for i in MLCdict.keys():
     for j in MLCdict[i]:
