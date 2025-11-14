@@ -381,6 +381,7 @@ parser.add_argument('-clu', type=str, help="clu.tsv output from mmseqs", default
 parser.add_argument('-nuc', type=str, help="genes in nucleotide format", default="NA")
 parser.add_argument('-aa', type=str, help="genes in amino acid format", default="NA")
 parser.add_argument('-ctl', type=str, help="template control file for codeml", default="NA")
+parser.add_argument('-out', type=str, help="name of output directory", default="NA")
 
 args = parser.parse_args()
 #
